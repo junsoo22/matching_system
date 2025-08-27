@@ -3,14 +3,13 @@
 import { useMemo, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
-// 환경변수에서 Supabase URL/KEY 가져오기
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+// app/register/page.tsx
+export const dynamic = 'force-dynamic';
+
+// 나머지 코드...
 
 export default function RegisterForm() {
-
+  // 컴포넌트 내부에서만 supabase 클라이언트 생성
   const supabase = useMemo(
     () =>
       createClient(
@@ -56,28 +55,39 @@ export default function RegisterForm() {
     e.preventDefault();
     setLoading(true);
 
-    // Supabase에 데이터 저장
-    const { error } = await supabase.from("registers").insert([
-      {
-        name: form.name,
-        department: form.department,
-        contact: form.contact,
-        gender: form.gender,
-        preferred_gender: form.preferredGender,
-        interests: [...form.interests, form.interestEtc].filter(Boolean),
-        love_type: form.loveType,
-        weekend_activity: form.weekendActivity,
-        drinking: form.drinking,
-        smoking: form.smoking,
-        talk_style: form.talkStyle,
-        photo_agree: form.photoAgree,
-        important: form.important,
-        available_time: form.availableTime,
-      },
-    ]);
-    setLoading(false);
-    if (!error) setSubmitted(true);
-    else alert("제출에 실패했습니다. 다시 시도해주세요.");
+    try {
+      // Supabase에 데이터 저장
+      const { error } = await supabase.from("registers").insert([
+        {
+          name: form.name,
+          department: form.department,
+          contact: form.contact,
+          gender: form.gender,
+          preferred_gender: form.preferredGender,
+          interests: [...form.interests, form.interestEtc].filter(Boolean),
+          love_type: form.loveType,
+          weekend_activity: form.weekendActivity,
+          drinking: form.drinking,
+          smoking: form.smoking,
+          talk_style: form.talkStyle,
+          photo_agree: form.photoAgree,
+          important: form.important,
+          available_time: form.availableTime,
+        },
+      ]);
+      
+      if (error) {
+        console.error('Supabase error:', error);
+        alert("제출에 실패했습니다. 다시 시도해주세요.");
+      } else {
+        setSubmitted(true);
+      }
+    } catch (error) {
+      console.error('Submit error:', error);
+      alert("제출에 실패했습니다. 다시 시도해주세요.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -234,6 +244,9 @@ export default function RegisterForm() {
                 onChange={e => setForm(f => ({ ...f, talkStyle: Number(e.target.value) }))}
                 className="w-full"
               />
+              <div className="text-center text-sm text-gray-600 mt-1">
+                {form.talkStyle}점
+              </div>
             </div>
             <div>
               <label className="block font-semibold mb-1 text-gray-800">사진 공개 동의</label>
@@ -254,6 +267,9 @@ export default function RegisterForm() {
                 value={form.important}
                 onChange={e => setForm(f => ({ ...f, important: e.target.value }))}
               />
+              <div className="text-right text-xs text-gray-500 mt-1">
+                {form.important.length}/50
+              </div>
             </div>
             <div>
               <label className="block font-semibold mb-1 text-gray-800">참석 가능한 시간대(예: 13:00-15:00)</label>
@@ -266,7 +282,7 @@ export default function RegisterForm() {
             </div>
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-pink-400 to-blue-400 text-white font-semibold py-3 rounded-full shadow-lg hover:scale-105 transition"
+              className="w-full bg-gradient-to-r from-pink-400 to-blue-400 text-white font-semibold py-3 rounded-full shadow-lg hover:scale-105 transition disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={loading}
             >
               {loading ? "제출 중..." : "제출하기"}
