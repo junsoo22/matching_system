@@ -1,103 +1,159 @@
 import Image from "next/image";
 
-export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+export default function Example() {
+    return (
+        <div className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+            <div className="absolute inset-0 -z-10 overflow-hidden">
+                <svg
+                    aria-hidden="true"
+                    className="absolute top-0 left-[max(50%,25rem)] h-256 w-512 -translate-x-1/2 mask-[radial-gradient(64rem_64rem_at_top,white,transparent)] stroke-gray-200"
+                >
+                    <defs>
+                        <pattern
+                            x="50%"
+                            y={-1}
+                            id="e813992c-7d03-4cc4-a2bd-151760b470a0"
+                            width={200}
+                            height={200}
+                            patternUnits="userSpaceOnUse"
+                        >
+                            <path d="M100 200V.5M.5 .5H200" fill="none" />
+                        </pattern>
+                    </defs>
+                    <svg
+                        x="50%"
+                        y={-1}
+                        className="overflow-visible fill-gray-50"
+                    >
+                        <path
+                            d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
+                            strokeWidth={0}
+                        />
+                    </svg>
+                    <rect
+                        fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)"
+                        width="100%"
+                        height="100%"
+                        strokeWidth={0}
+                    />
+                </svg>
+            </div>
+            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+                <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                    <div className="lg:pr-4">
+                        <div className="lg:max-w-lg">
+                            <p className="text-base/7 font-semibold text-indigo-600">
+                                Deploy faster
+                            </p>
+                            <h1 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+                                A better workflow
+                            </h1>
+                            <p className="mt-6 text-xl/8 text-gray-700">
+                                Aliquet nec orci mattis amet quisque ullamcorper
+                                neque, nibh sem. At arcu, sit dui mi, nibh dui,
+                                diam eget aliquam. Quisque id at vitae feugiat
+                                egestas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="-mt-12 -ml-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+                    <img
+                        alt=""
+                        src="https://tailwindcss.com/plus-assets/img/component-images/dark-project-app-screenshot.png"
+                        className="w-3xl max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-228"
+                    />
+                </div>
+                <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                    <div className="lg:pr-4">
+                        <div className="max-w-xl text-base/7 text-gray-700 lg:max-w-lg">
+                            <p>
+                                Faucibus commodo massa rhoncus, volutpat.
+                                Dignissim sed eget risus enim. Mattis mauris
+                                semper sed amet vitae sed turpis id. Id dolor
+                                praesent donec est. Odio penatibus risus viverra
+                                tellus varius sit neque erat velit. Faucibus
+                                commodo massa rhoncus, volutpat. Dignissim sed
+                                eget risus enim. Mattis mauris semper sed amet
+                                vitae sed turpis id.
+                            </p>
+                            <ul
+                                role="list"
+                                className="mt-8 space-y-8 text-gray-600"
+                            >
+                                <li className="flex gap-x-3">
+                                    <span>
+                                        <strong className="font-semibold text-gray-900">
+                                            Push to deploy.
+                                        </strong>{" "}
+                                        Lorem ipsum, dolor sit amet consectetur
+                                        adipisicing elit. Maiores impedit
+                                        perferendis suscipit eaque, iste dolor
+                                        cupiditate blanditiis ratione.
+                                    </span>
+                                </li>
+                                <li className="flex gap-x-3">
+                                    <span>
+                                        <strong className="font-semibold text-gray-900">
+                                            SSL certificates.
+                                        </strong>{" "}
+                                        Anim aute id magna aliqua ad ad non
+                                        deserunt sunt. Qui irure qui lorem
+                                        cupidatat commodo.
+                                    </span>
+                                </li>
+                                <li className="flex gap-x-3">
+                                    <span>
+                                        <strong className="font-semibold text-gray-900">
+                                            Database backups.
+                                        </strong>{" "}
+                                        Ac tincidunt sapien vehicula erat auctor
+                                        pellentesque rhoncus. Et magna sit morbi
+                                        lobortis.
+                                    </span>
+                                </li>
+                            </ul>
+                            <p className="mt-8">
+                                Et vitae blandit facilisi magna lacus commodo.
+                                Vitae sapien duis odio id et. Id blandit
+                                molestie auctor fermentum dignissim. Lacus diam
+                                tincidunt ac cursus in vel. Mauris varius
+                                vulputate et ultrices hac adipiscing egestas.
+                                Iaculis convallis ac tempor et ut. Ac lorem vel
+                                integer orci.
+                            </p>
+                            <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
+                                No server? No problem.
+                            </h2>
+                            <p className="mt-6">
+                                Id orci tellus laoreet id ac. Dolor, aenean leo,
+                                ac etiam consequat in. Convallis arcu ipsum urna
+                                nibh. Pharetra, euismod vitae interdum mauris
+                                enim, consequat vulputate nibh. Maecenas
+                                pellentesque id sed tellus mauris, ultrices
+                                mauris. Tincidunt enim cursus ridiculus mi.
+                                Pellentesque nam sed nullam sed diam turpis
+                                ipsum eu a sed convallis diam.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
+}
+
+
+export async function generateMetadata() {
+    return {
+        title: "큐라시의 블로그 입니다",
+        description:
+            "Next.js와 Supabase를 사용하여 만든 큐라시의 블로그입니다. 최신 기술 스택을 활용하여 빠르고 효율적인 웹 애플리케이션을 제공합니다.",
+        openGraph: {
+            title: "큐라시의 블로그 입니다",
+            description:
+                "Next.js와 Supabase를 사용하여 만든 큐라시의 블로그입니다. 최신 기술 스택을 활용하여 빠르고 효율적인 웹 애플리케이션을 제공합니다.",
+            images: "/images/JM_logo.png",
+        },
+    };
 }
