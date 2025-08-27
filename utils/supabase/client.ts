@@ -8,4 +8,3 @@ export const createBrowserSupabaseClient = () =>
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     );
-출처: https://kyurasi.tistory.com/entry/Nextjs-Supabase-프로젝트-4-Supabase-코드-설정 [Junmannn의 Archive:티스토리]
