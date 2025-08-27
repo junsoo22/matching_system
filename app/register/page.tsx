@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 // 환경변수에서 Supabase URL/KEY 가져오기
@@ -10,6 +10,16 @@ const supabase = createClient(
 );
 
 export default function RegisterForm() {
+
+  const supabase = useMemo(
+    () =>
+      createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? ""
+      ),
+    []
+  );
+
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
